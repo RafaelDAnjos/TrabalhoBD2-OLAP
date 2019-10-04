@@ -1,14 +1,15 @@
-# TRABALHO 01 : Título do trabalho
-Trabalho desenvolvido durante a disciplina de BD2
+# Crime em São Paulo
+Este trabalho foi desenvolvido durante a disciplina de BD2.
  
 # Sumário
 
 ### 1	COMPONENTES<br>
-Integrantes do grupo<br>
+Rafael Afonso dos Anjos<br>
 
 
 ### 2	INTRODUÇÃO E MOTIVAÇAO<br>
-Este documento contém a especificação do projeto do banco de dados <nome do projeto> e motivação da escolha realizada. <br>
+Este documento contém a especificação do projeto do banco de dados <nome do projeto> e motivação da escolha realizada.
+ Este projeto visa fazer um estudo de análise dos dados criminais da cidade de São Paulo no Brasil, a base de dados escolhida foi retirada do site: https://www.kaggle.com/inquisitivecrow/crime-data-in-brazil, foi escolhida essa base devido à vontade de trabalhar com algo mais próximo do meio em que os componentes do trabalho vivem<br>
 
 
 ### 3 Fast Imersion Canvas <br>
