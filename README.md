@@ -14,12 +14,20 @@ Este documento contém a especificação do projeto do banco de dados <nome do p
 
 ### 3 Fast Imersion Canvas <br>
 Inclusão do Fast Imersion Canvas
+![Alt Text](https://github.com/RafaelDAnjos/TrabalhoBD2-OLAP/raw/master/Canvas/Imagens/Fast%20Imersion%20Canvas.jpg)
+
 <br>
-<br>
-### 4 Fast Modelling Canvas
-<br>
+
+
+
+### 4 Fast Modelling Canvas<br>
+
 Inclusão do Fast Modelling Canvas
+
+![Alt Text](https://github.com/RafaelDAnjos/TrabalhoBD2-OLAP/raw/master/Canvas/Imagens/IMAGEMFMCV.jpg)
+
 <br>
+
 <br>
 
 ### 5 Mapa de ETL
