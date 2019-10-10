@@ -33,6 +33,8 @@ Inclusão do Fast Modelling Canvas
 ### 5 Mapa de ETL
 <br>
 Inclusão do Mapa de ETL
+
+![Alt Text](https://github.com/RafaelDAnjos/TrabalhoBD2-OLAP/blob/master/ETL/Screenshot_2.png)
 <br>
 <br>
 
