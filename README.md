@@ -8,12 +8,12 @@ Rafael Afonso dos Anjos<br>
 
 
 ### 2	INTRODUÇÃO E MOTIVAÇAO<br>
-Este documento contém a especificação do projeto do banco de dados <nome do projeto> e motivação da escolha realizada.
+
  Este projeto visa fazer um estudo de análise dos dados criminais da cidade de São Paulo no Brasil, a base de dados escolhida foi retirada do site: https://www.kaggle.com/inquisitivecrow/crime-data-in-brazil, foi escolhida essa base devido à vontade de trabalhar com algo mais próximo do meio em que os componentes do trabalho vivem<br>
 
 
 ### 3 Fast Imersion Canvas <br>
-Inclusão do Fast Imersion Canvas
+
 ![Alt Text](https://github.com/RafaelDAnjos/TrabalhoBD2-OLAP/raw/master/Canvas/Imagens/Fast%20Imersion%20Canvas.jpg)
 
 <br>
@@ -22,7 +22,6 @@ Inclusão do Fast Imersion Canvas
 
 ### 4 Fast Modelling Canvas<br>
 
-Inclusão do Fast Modelling Canvas
 
 ![Alt Text](https://github.com/RafaelDAnjos/TrabalhoBD2-OLAP/raw/master/Canvas/Imagens/IMAGEMFMCV.jpg)
 
@@ -32,7 +31,7 @@ Inclusão do Fast Modelling Canvas
 
 ### 5 Mapa de ETL
 <br>
-Inclusão do Mapa de ETL
+
 
 ![Alt Text](https://github.com/RafaelDAnjos/TrabalhoBD2-OLAP/blob/master/ETL/Screenshot_2.png)
 <br>
@@ -40,7 +39,7 @@ Inclusão do Mapa de ETL
 
 ### 6 Análise Exploratória dos dados (Incluindo gráficos)
 <br>
-Inclusão de Análise exploratoria de dados (Jupyter notebook/Colab)
+https://github.com/RafaelDAnjos/TrabalhoBD2-OLAP/blob/master/Jupyter/AnaliseDescritivaDados.ipynb
 <br>
 <br>
       
