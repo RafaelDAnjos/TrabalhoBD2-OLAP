@@ -44,8 +44,10 @@ https://github.com/RafaelDAnjos/TrabalhoBD2-OLAP/blob/master/Jupyter/AnaliseDesc
 <br>
       
 ### 7	MODELO CONCEITUAL, LOGICO E FISICO - OLTP<br>
+Modelo Conceitual
+ ![Alt Text](https://github.com/RafaelDAnjos/TrabalhoBD2-OLAP/blob/master/ETL/Conceitual_1.png)
 <br>
-Inclusão dos Modelos OLTP
+ 
 <br>
 <br>
 
