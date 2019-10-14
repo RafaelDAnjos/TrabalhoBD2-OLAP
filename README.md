@@ -47,9 +47,8 @@ https://github.com/RafaelDAnjos/TrabalhoBD2-OLAP/blob/master/Jupyter/AnaliseDesc
 Modelo Conceitual
  ![Alt Text](https://github.com/RafaelDAnjos/TrabalhoBD2-OLAP/blob/master/ETL/Conceitual_1.png)
 Modelo Lógico
-
+ ![Alt Text](https://github.com/RafaelDAnjos/TrabalhoBD2-OLAP/blob/master/ETL/L%C3%B3gico_1.png)
 Modelo Físico
-/* Lógico_1: */
 
 CREATE TABLE Delegacia (
     id_delegacia serial PRIMARY KEY,
