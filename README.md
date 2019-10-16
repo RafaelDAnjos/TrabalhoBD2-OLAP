@@ -3,11 +3,11 @@ Este trabalho foi desenvolvido durante a disciplina de BD2.
  
 # Sumário
 
-### 1	COMPONENTES<br>
-Rafael Afonso dos Anjos<br>
+### 1	COMPONENTES
+- Rafael Afonso dos Anjos
+- Marcos Antonio Carneiro de Paula
 
-
-### 2	INTRODUÇÃO E MOTIVAÇAO<br>
+### 2	INTRODUÇÃO E MOTIVAÇAO
 
  Este projeto visa fazer um estudo de análise dos dados criminais da cidade de São Paulo no Brasil, a base de dados escolhida foi retirada do site: https://www.kaggle.com/inquisitivecrow/crime-data-in-brazil, foi escolhida essa base devido à vontade de trabalhar com algo mais próximo do meio em que os componentes do trabalho vivem<br>
 
