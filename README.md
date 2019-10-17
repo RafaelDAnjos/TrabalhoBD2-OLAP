@@ -24,6 +24,12 @@ Este trabalho foi desenvolvido durante a disciplina de BD2.
 
 ![Alt Text](/ETL/Screenshot_2.png)
 
+- [Transformação tabela dimensões](/ETL/dimensions_crime_sp.ktr)
+ ![Transformação tabela dimensões](/ETL/dim_transform.png)
+
+- [Transformação tabela fato](/ETL/fato_transform.ktr)
+ ![Transformação tabela fato](/ETL/fato_transform.png)
+
 ### 6 Análise Exploratória dos dados (Incluindo gráficos)
 
 [Análise](/Jupyter/AnaliseDescritivaDados.ipynb)
