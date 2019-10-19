@@ -14,15 +14,15 @@ Este trabalho foi desenvolvido durante a disciplina de BD2.
 
 ### 3 Fast Imersion Canvas <br>
 
-![Alt Text](/Canvas/Imagens/Fast%20Imersion%20Canvas.jpg)
+![Fast Imersion Canvas](/Canvas/Imagens/Fast%20Imersion%20Canvas.jpg)
 
 ### 4 Fast Modelling Canvas<br>
 
-![Alt Text](/Canvas/Imagens/IMAGEMFMCV.jpg)
+![Fast Modelling Canvas](/Canvas/Imagens/IMAGEMFMCV.png)
 
 ### 5 Mapa de ETL
 
-![Alt Text](/ETL/Screenshot_2.png)
+![Carga do csv para o banco de dados](/ETL/Screenshot_2.png)
 
 - [Transformação tabela dimensões](/ETL/dimensions_crime_sp.ktr)
  ![Transformação tabela dimensões](/ETL/dim_transform.png)
