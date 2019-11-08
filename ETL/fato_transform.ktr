@@ -489,31 +489,6 @@
   </connection>
   <order>
     <hop>
-      <from>Sort rows data</from>
-      <to>Dimension lookup/update dim_data</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Sort rows hora</from>
-      <to>Dimension lookup/update dim_hora</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>crimes_sp table</from>
-      <to>Dimension lookup/update dim_delegacia</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Split fields hora</from>
-      <to>Sort rows hora</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Split fields data</from>
-      <to>Sort rows data</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Dimension lookup/update dim_delegacia</from>
       <to>Dimension lookup/update dim_pessoa</to>
       <enabled>Y</enabled>
@@ -534,23 +509,38 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>crimes_sp table</from>
+      <to>Dimension lookup/update dim_delegacia</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Dimension lookup/update dim_rubrica</from>
       <to>Split fields data</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Dimension lookup/update dim_data</from>
+      <from>Dimension lookup/update dim_hora 2</from>
+      <to>fato_crime table</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dimension lookup/update dim_data 2</from>
       <to>Split fields hora</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Dimension lookup/update dim_hora</from>
-      <to>fato_crime table</to>
+      <from>Split fields data</from>
+      <to>Dimension lookup/update dim_data 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Split fields hora</from>
+      <to>Dimension lookup/update dim_hora 2</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Dimension lookup/update dim_data</name>
+    <name>Dimension lookup/update dim_data 2</name>
     <type>DimensionLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -567,22 +557,29 @@
     <update>N</update>
     <fields>
       <key>
-        <name>dia</name>
-        <lookup>dia</lookup>
-      </key>
-      <key>
-        <name>mes</name>
-        <lookup>mes</lookup>
-      </key>
-      <key>
-        <name>ano</name>
-        <lookup>ano</lookup>
+        <name>data</name>
+        <lookup>data</lookup>
       </key>
       <date>
         <name/>
         <from>date_from</from>
         <to>date_to</to>
       </date>
+      <field>
+        <name>dia</name>
+        <lookup>dia</lookup>
+        <update>None</update>
+      </field>
+      <field>
+        <name>mes</name>
+        <lookup>mes</lookup>
+        <update>None</update>
+      </field>
+      <field>
+        <name>ano</name>
+        <lookup>ano</lookup>
+        <update>None</update>
+      </field>
       <return>
         <name>id_dim_data</name>
         <rename/>
@@ -609,8 +606,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>832</xloc>
-      <yloc>352</yloc>
+      <xloc>1056</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -681,8 +678,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>176</xloc>
-      <yloc>112</yloc>
+      <xloc>208</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -746,13 +743,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>352</yloc>
+      <xloc>672</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Dimension lookup/update dim_hora</name>
+    <name>Dimension lookup/update dim_hora 2</name>
     <type>DimensionLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -769,18 +766,24 @@
     <update>N</update>
     <fields>
       <key>
-        <name>hora</name>
-        <lookup>hora</lookup>
-      </key>
-      <key>
-        <name>minuto</name>
-        <lookup>minuto</lookup>
+        <name>horario</name>
+        <lookup>horario</lookup>
       </key>
       <date>
         <name/>
         <from>date_from</from>
         <to>date_to</to>
       </date>
+      <field>
+        <name>hora</name>
+        <lookup>hora</lookup>
+        <update>None</update>
+      </field>
+      <field>
+        <name>minuto</name>
+        <lookup>minuto</lookup>
+        <update>None</update>
+      </field>
       <return>
         <name>id_dim_hora</name>
         <rename/>
@@ -807,7 +810,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1056</xloc>
+      <xloc>1296</xloc>
       <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
@@ -888,8 +891,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>416</xloc>
-      <yloc>112</yloc>
+      <xloc>512</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -957,8 +960,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>288</xloc>
-      <yloc>352</yloc>
+      <xloc>352</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -977,7 +980,7 @@
     <table>dim_rubrica</table>
     <connection>crimes_sp</connection>
     <commit>100</commit>
-    <update>Y</update>
+    <update>N</update>
     <fields>
       <key>
         <name>rubrica</name>
@@ -1018,116 +1021,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>672</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows data</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>/home/marcos/temp</directory>
-    <prefix>out</prefix>
-    <sort_size>1000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>Y</unique_rows>
-    <fields>
-      <field>
-        <name>dia</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>mes</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>ano</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>784</xloc>
-      <yloc>272</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sort rows hora</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <directory>/home/marcos/temp</directory>
-    <prefix>out</prefix>
-    <sort_size>1000</sort_size>
-    <free_memory/>
-    <compress>N</compress>
-    <compress_variable/>
-    <unique_rows>Y</unique_rows>
-    <fields>
-      <field>
-        <name>hora</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>minuto</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>976</xloc>
-      <yloc>192</yloc>
+      <xloc>864</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1201,8 +1096,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>736</xloc>
-      <yloc>192</yloc>
+      <xloc>960</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1261,8 +1156,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>912</xloc>
-      <yloc>272</yloc>
+      <xloc>1184</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1292,7 +1187,9 @@
 , nome_municipio_circ
 , descr_tipo_bo
 , data_ocorrencia_bo
+, data_ocorrencia_bo as data
 , hora_ocorrencia_bo
+, hora_ocorrencia_bo as horario
 , flag_status
 , rubrica
 , descr_conduta
@@ -1310,7 +1207,7 @@
 , cor_cutis
 FROM crime
 </sql>
-    <limit>0</limit>
+    <limit/>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
@@ -1324,8 +1221,8 @@ FROM crime
       </output>
     </remotesteps>
     <GUI>
-      <xloc>80</xloc>
-      <yloc>240</yloc>
+      <xloc>48</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1358,10 +1255,6 @@ FROM crime
     <return_keys>N</return_keys>
     <return_field/>
     <fields>
-      <field>
-        <column_name>num_bo</column_name>
-        <stream_name>num_bo</stream_name>
-      </field>
       <field>
         <column_name>idade_pessoa</column_name>
         <stream_name>idade_pessoa</stream_name>
@@ -1404,8 +1297,8 @@ FROM crime
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1168</xloc>
-      <yloc>256</yloc>
+      <xloc>1424</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
