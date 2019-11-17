@@ -489,32 +489,7 @@
   <order>
     <hop>
       <from>Table input</from>
-      <to>Split fields hora</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Table input</from>
-      <to>Split fields data</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Table input</from>
-      <to>Dimension lookup/update dim_rubrica</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>Table input</from>
       <to>Dimension lookup/update dim_delegacia_circ</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>Table input</from>
-      <to>Dimension lookup/update dim_local</to>
-      <enabled>N</enabled>
-    </hop>
-    <hop>
-      <from>Table input</from>
-      <to>Dimension lookup/update dim_pessoa</to>
       <enabled>N</enabled>
     </hop>
     <hop>
@@ -523,13 +498,78 @@
       <enabled>N</enabled>
     </hop>
     <hop>
-      <from>Split fields data</from>
-      <to>Dimension lookup/update dim_data</to>
+      <from>Split fields hora</from>
+      <to>Dimension lookup/update dim_hora</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Split fields hora</from>
-      <to>Dimension lookup/update dim_hora</to>
+      <from>Table input</from>
+      <to>Unique rows (HashSet)</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Table input</from>
+      <to>Sort rows</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows</from>
+      <to>Dimension lookup/update dim_data</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Table input</from>
+      <to>Unique rows (HashSet) 2</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Unique rows (HashSet) 2</from>
+      <to>If field value is null</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>If field value is null</from>
+      <to>Dimension lookup/update dim_rubrica</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Table input</from>
+      <to>Unique rows (HashSet) 2 2</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Unique rows (HashSet) 2 2</from>
+      <to>If field value is null 2</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>If field value is null 2</from>
+      <to>Dimension lookup/update dim_pessoa</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Unique rows (HashSet) 3</from>
+      <to>Dimension lookup/update dim_local</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Table input</from>
+      <to>If field value is null 3</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>If field value is null 3</from>
+      <to>Unique rows (HashSet) 3</to>
+      <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Unique rows (HashSet)</from>
+      <to>Sort rows 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sort rows 2</from>
+      <to>Split fields hora</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -551,7 +591,7 @@
     <update>Y</update>
     <fields>
       <key>
-        <name>data</name>
+        <name>data_ocorrencia_bo</name>
         <lookup>data</lookup>
       </key>
       <date>
@@ -600,8 +640,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>480</xloc>
-      <yloc>432</yloc>
+      <xloc>640</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -672,8 +712,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>480</xloc>
-      <yloc>80</yloc>
+      <xloc>832</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -737,8 +777,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>480</xloc>
-      <yloc>208</yloc>
+      <xloc>432</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -804,7 +844,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
+      <xloc>368</xloc>
       <yloc>544</yloc>
       <draw>Y</draw>
     </GUI>
@@ -885,8 +925,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>480</xloc>
-      <yloc>336</yloc>
+      <xloc>896</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -954,8 +994,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>480</xloc>
-      <yloc>144</yloc>
+      <xloc>192</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1015,14 +1055,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>480</xloc>
-      <yloc>272</yloc>
+      <xloc>1088</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Split fields data</name>
-    <type>FieldSplitter</type>
+    <name>If field value is null</name>
+    <type>IfNull</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1031,54 +1071,19 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <splitfield>data_ocorrencia_bo</splitfield>
-    <delimiter>/</delimiter>
-    <enclosure/>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
     <fields>
       <field>
-        <name>dia</name>
-        <id/>
-        <idrem>N</idrem>
-        <type>String</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
-        <trimtype>none</trimtype>
-      </field>
-      <field>
-        <name>mes</name>
-        <id/>
-        <idrem>N</idrem>
-        <type>String</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
-        <trimtype>none</trimtype>
-      </field>
-      <field>
-        <name>ano</name>
-        <id/>
-        <idrem>N</idrem>
-        <type>String</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
-        <trimtype>none</trimtype>
+        <name>desdobramento</name>
+        <value>Desdobramento não informado</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
       </field>
     </fields>
     <attributes/>
@@ -1090,8 +1095,148 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
-      <yloc>400</yloc>
+      <xloc>912</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>If field value is null 2</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>flag_vitima_fatal</name>
+        <value>N</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>sexo_pessoa</name>
+        <value>I</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>352</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>If field value is null 3</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>descr_subtipolocal</name>
+        <value>Outros</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>longitude</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>latitude</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>10000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>data_ocorrencia_bo</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1114,13 +1259,13 @@
         <name>hora</name>
         <id/>
         <idrem>N</idrem>
-        <type>String</type>
+        <type>Integer</type>
         <format/>
         <group/>
         <decimal/>
         <currency/>
         <length>-1</length>
-        <precision>-1</precision>
+        <precision>254</precision>
         <nullif/>
         <ifnull/>
         <trimtype>none</trimtype>
@@ -1129,13 +1274,13 @@
         <name>minuto</name>
         <id/>
         <idrem>N</idrem>
-        <type>String</type>
+        <type>Integer</type>
         <format/>
         <group/>
         <decimal/>
         <currency/>
         <length>-1</length>
-        <precision>-1</precision>
+        <precision>254</precision>
         <nullif/>
         <ifnull/>
         <trimtype>none</trimtype>
@@ -1150,8 +1295,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>272</xloc>
-      <yloc>464</yloc>
+      <xloc>480</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1181,7 +1326,9 @@
 , nome_municipio_circ
 , descr_tipo_bo
 , data_ocorrencia_bo
-, data_ocorrencia_bo as data
+, EXTRACT(YEAR FROM data_ocorrencia_bo) AS ano
+, EXTRACT(MONTH FROM data_ocorrencia_bo) AS mes
+, EXTRACT(DAY FROM data_ocorrencia_bo) AS dia
 , hora_ocorrencia_bo
 , hora_ocorrencia_bo as horario
 , flag_status
@@ -1201,7 +1348,7 @@
 , cor_cutis
 FROM crime
 </sql>
-    <limit>0</limit>
+    <limit/>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
@@ -1215,8 +1362,212 @@ FROM crime
       </output>
     </remotesteps>
     <GUI>
-      <xloc>32</xloc>
-      <yloc>320</yloc>
+      <xloc>640</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Unique rows (HashSet)</name>
+    <type>UniqueRowsByHashSet</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <store_values>N</store_values>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <fields>
+      <field>
+        <name>horario</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>544</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Unique rows (HashSet) 2</name>
+    <type>UniqueRowsByHashSet</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <store_values>N</store_values>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <fields>
+      <field>
+        <name>rubrica</name>
+      </field>
+      <field>
+        <name>desdobramento</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>768</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Unique rows (HashSet) 2 2</name>
+    <type>UniqueRowsByHashSet</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <store_values>N</store_values>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <fields>
+      <field>
+        <name>descr_tipo_pessoa</name>
+      </field>
+      <field>
+        <name>flag_vitima_fatal</name>
+      </field>
+      <field>
+        <name>sexo_pessoa</name>
+      </field>
+      <field>
+        <name>cor_cutis</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Unique rows (HashSet) 3</name>
+    <type>UniqueRowsByHashSet</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <store_values>Y</store_values>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <fields>
+      <field>
+        <name>descr_subtipolocal</name>
+      </field>
+      <field>
+        <name>descr_tipolocal</name>
+      </field>
+      <field>
+        <name>cidade</name>
+      </field>
+      <field>
+        <name>latitude</name>
+      </field>
+      <field>
+        <name>longitude</name>
+      </field>
+      <field>
+        <name>nome_municipio_circ</name>
+      </field>
+      <field>
+        <name>logradouro</name>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sort rows 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>hora_ocorrencia_bo</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>480</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

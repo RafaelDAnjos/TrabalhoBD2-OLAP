@@ -489,58 +489,68 @@
   </connection>
   <order>
     <hop>
-      <from>Dimension lookup/update dim_delegacia</from>
+      <from>If field value is null</from>
+      <to>Dimension lookup/update dim_rubrica</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>If field value is null 2</from>
       <to>Dimension lookup/update dim_pessoa</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Dimension lookup/update dim_pessoa</from>
+      <from>Split fields hora</from>
+      <to>Dimension lookup/update dim_hora</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Table input</from>
+      <to>Dimension lookup/update dim_delegacia</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>If field value is null 3</from>
       <to>Dimension lookup/update dim_local</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Dimension lookup/update dim_local</from>
+      <from>Dimension lookup/update dim_delegacia</from>
       <to>Dimension lookup/update dim_delegacia_circ</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Dimension lookup/update dim_delegacia_circ</from>
-      <to>Dimension lookup/update dim_rubrica</to>
+      <to>If field value is null 2</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>crimes_sp table</from>
-      <to>Dimension lookup/update dim_delegacia</to>
+      <from>Dimension lookup/update dim_pessoa</from>
+      <to>If field value is null 3</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Dimension lookup/update dim_rubrica</from>
-      <to>Split fields data</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Dimension lookup/update dim_hora 2</from>
-      <to>fato_crime table</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Dimension lookup/update dim_data 2</from>
+      <from>Dimension lookup/update dim_local</from>
       <to>Split fields hora</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Split fields data</from>
-      <to>Dimension lookup/update dim_data 2</to>
+      <from>Dimension lookup/update dim_hora</from>
+      <to>If field value is null</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Split fields hora</from>
-      <to>Dimension lookup/update dim_hora 2</to>
+      <from>Dimension lookup/update dim_data</from>
+      <to>fato_crime table</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Dimension lookup/update dim_rubrica</from>
+      <to>Dimension lookup/update dim_data</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Dimension lookup/update dim_data 2</name>
+    <name>Dimension lookup/update dim_data</name>
     <type>DimensionLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -554,10 +564,10 @@
     <table>dim_data</table>
     <connection>crimes_sp</connection>
     <commit>100</commit>
-    <update>N</update>
+    <update>Y</update>
     <fields>
       <key>
-        <name>data</name>
+        <name>data_ocorrencia_bo</name>
         <lookup>data</lookup>
       </key>
       <date>
@@ -568,17 +578,17 @@
       <field>
         <name>dia</name>
         <lookup>dia</lookup>
-        <update>None</update>
+        <update>Insert</update>
       </field>
       <field>
         <name>mes</name>
         <lookup>mes</lookup>
-        <update>None</update>
+        <update>Insert</update>
       </field>
       <field>
         <name>ano</name>
         <lookup>ano</lookup>
-        <update>None</update>
+        <update>Insert</update>
       </field>
       <return>
         <name>id_dim_data</name>
@@ -607,7 +617,7 @@
     </remotesteps>
     <GUI>
       <xloc>1056</xloc>
-      <yloc>288</yloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -626,7 +636,7 @@
     <table>dim_delegacia</table>
     <connection>crimes_sp</connection>
     <commit>100</commit>
-    <update>N</update>
+    <update>Y</update>
     <fields>
       <key>
         <name>id_delegacia</name>
@@ -640,17 +650,17 @@
       <field>
         <name>nome_departamento</name>
         <lookup>nome_departamento</lookup>
-        <update>None</update>
+        <update>Insert</update>
       </field>
       <field>
         <name>nome_seccional</name>
         <lookup>nome_seccional</lookup>
-        <update>None</update>
+        <update>Insert</update>
       </field>
       <field>
         <name>nome_delegacia</name>
         <lookup>nome_delegacia</lookup>
-        <update>None</update>
+        <update>Insert</update>
       </field>
       <return>
         <name>id_dim_delegacia</name>
@@ -678,8 +688,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
-      <yloc>144</yloc>
+      <xloc>192</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -698,7 +708,7 @@
     <table>dim_delegacia_circ</table>
     <connection>crimes_sp</connection>
     <commit>100</commit>
-    <update>N</update>
+    <update>Y</update>
     <fields>
       <key>
         <name>nome_departamento_circ</name>
@@ -743,13 +753,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>672</xloc>
-      <yloc>272</yloc>
+      <xloc>320</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Dimension lookup/update dim_hora 2</name>
+    <name>Dimension lookup/update dim_hora</name>
     <type>DimensionLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -763,7 +773,7 @@
     <table>dim_hora</table>
     <connection>crimes_sp</connection>
     <commit>100</commit>
-    <update>N</update>
+    <update>Y</update>
     <fields>
       <key>
         <name>horario</name>
@@ -777,12 +787,12 @@
       <field>
         <name>hora</name>
         <lookup>hora</lookup>
-        <update>None</update>
+        <update>Insert</update>
       </field>
       <field>
         <name>minuto</name>
         <lookup>minuto</lookup>
-        <update>None</update>
+        <update>Insert</update>
       </field>
       <return>
         <name>id_dim_hora</name>
@@ -810,8 +820,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1296</xloc>
-      <yloc>112</yloc>
+      <xloc>800</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -830,7 +840,7 @@
     <table>dim_local</table>
     <connection>crimes_sp</connection>
     <commit>100</commit>
-    <update>N</update>
+    <update>Y</update>
     <fields>
       <key>
         <name>cidade</name>
@@ -891,8 +901,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>512</xloc>
-      <yloc>144</yloc>
+      <xloc>656</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -911,7 +921,7 @@
     <table>dim_pessoa</table>
     <connection>crimes_sp</connection>
     <commit>100</commit>
-    <update>N</update>
+    <update>Y</update>
     <fields>
       <key>
         <name>descr_tipo_pessoa</name>
@@ -960,8 +970,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
-      <yloc>272</yloc>
+      <xloc>480</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -980,7 +990,7 @@
     <table>dim_rubrica</table>
     <connection>crimes_sp</connection>
     <commit>100</commit>
-    <update>N</update>
+    <update>Y</update>
     <fields>
       <key>
         <name>rubrica</name>
@@ -1021,14 +1031,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>864</xloc>
-      <yloc>128</yloc>
+      <xloc>928</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Split fields data</name>
-    <type>FieldSplitter</type>
+    <name>If field value is null</name>
+    <type>IfNull</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1037,54 +1047,19 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <splitfield>data_ocorrencia_bo</splitfield>
-    <delimiter>/</delimiter>
-    <enclosure/>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
     <fields>
       <field>
-        <name>dia</name>
-        <id/>
-        <idrem>N</idrem>
-        <type>String</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
-        <trimtype>none</trimtype>
-      </field>
-      <field>
-        <name>mes</name>
-        <id/>
-        <idrem>N</idrem>
-        <type>String</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
-        <trimtype>none</trimtype>
-      </field>
-      <field>
-        <name>ano</name>
-        <id/>
-        <idrem>N</idrem>
-        <type>String</type>
-        <format/>
-        <group/>
-        <decimal/>
-        <currency/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <nullif/>
-        <ifnull/>
-        <trimtype>none</trimtype>
+        <name>desdobramento</name>
+        <value>Desdobramento não informado</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
       </field>
     </fields>
     <attributes/>
@@ -1096,7 +1071,105 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>960</xloc>
+      <xloc>880</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>If field value is null 2</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>flag_vitima_fatal</name>
+        <value>N</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>sexo_pessoa</name>
+        <value>I</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>416</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>If field value is null 3</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>descr_subtipolocal</name>
+        <value>Outros</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>longitude</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>latitude</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>544</xloc>
       <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1120,13 +1193,13 @@
         <name>hora</name>
         <id/>
         <idrem>N</idrem>
-        <type>String</type>
+        <type>Integer</type>
         <format/>
         <group/>
         <decimal/>
         <currency/>
         <length>-1</length>
-        <precision>-1</precision>
+        <precision>254</precision>
         <nullif/>
         <ifnull/>
         <trimtype>none</trimtype>
@@ -1135,13 +1208,13 @@
         <name>minuto</name>
         <id/>
         <idrem>N</idrem>
-        <type>String</type>
+        <type>Integer</type>
         <format/>
         <group/>
         <decimal/>
         <currency/>
         <length>-1</length>
-        <precision>-1</precision>
+        <precision>254</precision>
         <nullif/>
         <ifnull/>
         <trimtype>none</trimtype>
@@ -1156,13 +1229,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1184</xloc>
-      <yloc>192</yloc>
+      <xloc>720</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>crimes_sp table</name>
+    <name>Table input</name>
     <type>TableInput</type>
     <description/>
     <distribute>N</distribute>
@@ -1187,7 +1260,9 @@
 , nome_municipio_circ
 , descr_tipo_bo
 , data_ocorrencia_bo
-, data_ocorrencia_bo as data
+, EXTRACT(YEAR FROM data_ocorrencia_bo) AS ano
+, EXTRACT(MONTH FROM data_ocorrencia_bo) AS mes
+, EXTRACT(DAY FROM data_ocorrencia_bo) AS dia
 , hora_ocorrencia_bo
 , hora_ocorrencia_bo as horario
 , flag_status
@@ -1221,7 +1296,7 @@ FROM crime
       </output>
     </remotesteps>
     <GUI>
-      <xloc>48</xloc>
+      <xloc>96</xloc>
       <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1241,9 +1316,9 @@ FROM crime
     <schema/>
     <table>fato_crime</table>
     <commit>1000</commit>
-    <truncate>N</truncate>
+    <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
+    <use_batch>N</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
     <partitioning_field/>
@@ -1297,7 +1372,7 @@ FROM crime
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1424</xloc>
+      <xloc>1152</xloc>
       <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
