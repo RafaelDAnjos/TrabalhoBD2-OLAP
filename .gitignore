@@ -125,3 +125,5 @@ dmypy.json
 *config.chc
 *autosave.chc
 .vscode
+*venv*
+
