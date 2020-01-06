@@ -689,7 +689,7 @@
     </remotesteps>
     <GUI>
       <xloc>192</xloc>
-      <yloc>80</yloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -753,7 +753,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>320</xloc>
+      <xloc>304</xloc>
       <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
@@ -970,7 +970,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>480</xloc>
+      <xloc>464</xloc>
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1071,8 +1071,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>880</xloc>
-      <yloc>256</yloc>
+      <xloc>864</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1117,7 +1117,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>416</xloc>
+      <xloc>400</xloc>
       <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1229,8 +1229,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>720</xloc>
-      <yloc>240</yloc>
+      <xloc>736</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1296,7 +1296,7 @@ FROM crime
       </output>
     </remotesteps>
     <GUI>
-      <xloc>96</xloc>
+      <xloc>80</xloc>
       <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1372,8 +1372,8 @@ FROM crime
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1152</xloc>
-      <yloc>272</yloc>
+      <xloc>1136</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
